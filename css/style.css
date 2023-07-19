@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    background-color: #dadada;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* añadimos este ajuste porque solo con los tres anteriores no se centra en medio, ya que el body no es toda la pantalla, si no lo que ocupa su contenido. De esta forma conseguimos que se adapte a lo que vemos */
+}
+
+/*************** SPOTIFY ****************/
+
+.boton {
+    width: 380px;
+    height: 60px;
+    background-color: #1DB954;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    border-radius: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* colocamos estos tres últimos ajustes en nuestro div para que el contenido quede totalmente centrado */
+}
+
+.boton__inicio {
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.boton:hover {
+    background-color: #32d16a;
+    width: 385px;
+    height: 65px;
+    font-size: 19px;
+}
+
+/************ MENÚ BURGER ***************/
+
+.burger {
+    width: 77px;
+    height: 77px;
+    border-radius: 100%;
+    border: 3px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* estos 3 últimos ajustes nos permiten colocar los 3 palos de dentro en disposición de columna y separados entre si */
+    padding: 20px 15px;
+    /* con este padding haremos que quede dentro con un espacio perfecto entre las líneas y el circulo, es como que se adapta. */
+    cursor: pointer; /* para que salga la manita cuando nos ponemos encima */
+}
+
+.burger > div {
+    height: 3px;
+    background-color: black;
+    transition: translate 0.5s 0.5s, rotate 0.5s;
+}
+
+.burger:hover > div:first-child {
+    translate: 0 15px; /* primera medida eje x y segunda eje y. Solo le damos al eje y porque queremos que baje */
+    rotate: 90deg;
+    transition: translate 0.5s, rotate 0.5s 0.5s; /* cuando pasemos el ratón por encima se moverá. El rotate lleva dos tiempos para que no lo haga todo a la vez, sino que primero baje y luego gire */
+}
+
+.burger:hover > div:last-child {
+    translate: 0 -15px;
+    transition: translate 0.5s;
+}
+
+/******************** redes sociales ******************/
+
+/* ICONOS */
+
+@font-face {
+    font-family: 'redes';
+    src: url('../fonts/redes.woff?1degzw') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+i {
+    font-family: 'redes' !important;
+    speak-as: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+.icon-facebook:before {
+    content: "\e900";
+}
+.icon-instagram:before {
+    content: "\e901";
+}
+.icon-twitter:before {
+    content: "\e902";
+}
+
+/********************************************************/
+
+.redes {
+    display: flex;
+}
+
+.redes__li {
+    margin: 0;
+    display: flex;
+    padding: 10px;
+}
+
+.redes__link {
+    display: flex;
+    width: 50px;
+    height: 50px;
+
+    text-decoration: none;
+    border-radius: 40px;
+    border: 3px solid;
+    /* como dentro de esta clase tenemos dos grupos, en este le damos el borde de 3px y en el siguiente que ya hace referencia a cada red social de manera individual, le daremos el color que queremos */
+
+    align-items: center;
+    box-shadow: 0 0 0 6px white inset;
+    padding-left: 15px;
+    transition: 0.5s;
+}
+
+.redes__link > i {
+    transition: 0.5s;
+}
+
+.redes__link:hover > i {
+    transform: rotate (-360)deg;
+    /* la rotación es negativa porque queremos este efecto en concreto */
+}
+
+.redes__link:hover {
+    width: 150px;
+}
+
+.redes__link--facebook {
+    color: #3b5998;
+    border-color: #3b5998;
+}
+
+.icon-facebook {
+    display: flex;
+}
+
+.redes__link--twitter {
+    color: #00acee;
+    border-color: #00acee;
+}
+
+.icon-twitter {
+    display: flex;
+}
+
+.redes__link--instagram {
+    color: #dd2a7b;
+    border-color: #dd2a7b;
+}
+
+.icon-instagram {
+    display: flex;
+}
+
+.texto {
+    width: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.redes__link:hover .texto {
+    width: 100%;
+}
